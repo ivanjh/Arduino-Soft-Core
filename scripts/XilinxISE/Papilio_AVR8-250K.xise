@@ -12,7 +12,7 @@
     <!-- Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved. -->
   </header>
 
-  <version xil_pn:ise_version="12.2" xil_pn:schema_version="2"/>
+  <version xil_pn:ise_version="12.3" xil_pn:schema_version="2"/>
 
   <files>
     <file xil_pn:name="../../sources/CommonPacks/AVRuCPackage.vhd" xil_pn:type="FILE_VHDL">
@@ -191,11 +191,27 @@
     <file xil_pn:name="../../sources/Papilio_One.ucf" xil_pn:type="FILE_UCF">
       <association xil_pn:name="Implementation"/>
     </file>
+<<<<<<< HEAD
     <file xil_pn:name="../../submodules/papilio_core_template/sources/papilio_core_template.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation"/>
       <association xil_pn:name="Implementation"/>
     </file>
     <file xil_pn:name="../../sources/Memory/prog_mem_init.vhd" xil_pn:type="FILE_VHDL">
+=======
+    <file xil_pn:name="../../sources/Peripheral/PWMGen.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation"/>
+      <association xil_pn:name="Implementation"/>
+    </file>
+    <file xil_pn:name="../../sources/Peripheral/UpDownCount.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation"/>
+      <association xil_pn:name="Implementation"/>
+    </file>
+    <file xil_pn:name="../../sources/Peripheral/QuadCounter.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation"/>
+      <association xil_pn:name="Implementation"/>
+    </file>
+    <file xil_pn:name="../../sources/Peripheral/BusReg_AVR.vhd" xil_pn:type="FILE_VHDL">
+>>>>>>> Add peripherals.
       <association xil_pn:name="BehavioralSimulation"/>
       <association xil_pn:name="Implementation"/>
     </file>

@@ -15,6 +15,7 @@ package AVRuCPackage is
 -- Old package
 type ext_mux_din_type is array(0 to CExtMuxInSize-1) of std_logic_vector(7 downto 0);
 subtype ext_mux_en_type  is std_logic_vector(0 to CExtMuxInSize-1);
+type array_std_logic_vector_7_0 is array(natural range <>) of  std_logic_vector(7 downto 0);
 -- End of old package
 
 constant IOAdrWidth    : positive := 16;
