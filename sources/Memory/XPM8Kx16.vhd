@@ -11,7 +11,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.std_logic_unsigned.all;
 
 use WORK.SynthCtrlPack.all; -- Synthesis control
-use WORK.prog_mem_init_pkg.all; -- Init file for program memory.
+use WORK.main_pkg_avrmap_rom_code.all; -- Init file for program memory.
 
 -- For Synplicity Synplify
 --library virtexe;
