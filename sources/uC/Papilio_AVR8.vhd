@@ -24,6 +24,8 @@ use WORK.XMemCompPack.all;  -- Xilinx RAM components
 use WORK.MemAccessCtrlPack.all;
 use WORK.MemAccessCompPack.all;
 
+use WORK.AVR_Io_CompPack.all;
+
 entity Papilio_AVR8 is port(
 	 nrst   : in    std_logic;						--Uncomment this to connect reset to an external pushbutton. Must be defined in ucf.
 	 clk    : in    std_logic;
@@ -33,9 +35,6 @@ entity Papilio_AVR8 is port(
 	 portd  : inout std_logic_vector(7 downto 0);
 	 porte  : inout std_logic_vector(7 downto 0);
 	 portf  : inout std_logic_vector(7 downto 0);
-
-	-- PWM
-	 pwm    : out   std_logic_vector(7 downto 0);
 
 	-- UART 
 	rxd    : in    std_logic;
@@ -51,8 +50,8 @@ constant CImplPORTA			            : boolean := TRUE;
 constant CImplPORTB			            : boolean := TRUE;
 constant CImplPORTC							: boolean := TRUE;
 constant CImplPORTD    			         : boolean := TRUE;
-constant CImplPORTE      			      : boolean := TRUE;
-constant CImplPORTF           			: boolean := TRUE;
+constant CImplPORTE      			      : boolean := FALSE;
+constant CImplPORTF           			: boolean := FALSE;
 constant CImplUART      			      : boolean := TRUE;	--AVR8 UART peripheral
 constant CImplTmrCnt     					: boolean := TRUE;	--AVR8 Timer
 constant CImplpapilio_core_template    : boolean := FALSE;	--An example User Core, use this template to make your own custom peripherals.
@@ -326,7 +325,7 @@ signal core9_out_en   : std_logic;
 
 -- PWM Gen
 signal UpDownClockCount : std_logic_vector(15 downto 0);
-
+signal pwm : std_logic_vector(15 downto 0);
 
 begin
 
@@ -910,44 +909,46 @@ RAMAdrDcd_Inst:component RAMAdrDcd port map(
 
 
 
-
-	UpDownCount_Inst:component UpDownCount
+	-- PWM Up Down Counter
+	UpDownCounter_Inst:component UpDownCounter
 		generic map (
-			ControlRegAddress => x"5000"
+			IoAddress => conv_std_logic_vector(16#1100#,16)
 		)
 		port map(
 			-- AVR Control
 			ireset     => core_ireset,
 			cp2	     => core_cp2,
-			adr        => core_ramadr,
+			adr        => core_adr,
 			dbus_in    => core_dbusout,
-			iore       => core_ramre,
-			iowe       => core_ramwe,
+			iore       => core_iore,
+			iowe       => core_iowe,
 			-- External connection
 			count => UpDownClockCount
 		);
 
+	-- PWM compare blocks
+	PwmComparator_Inst:for i in pwm'range generate
+		PwmComparator_Inst:component PwmComparator 
+			generic map(
+				IoAddress => conv_std_logic_vector(16#1102#+i*2, 16)
+			)
+			port map(
+				-- AVR Control
+				ireset     => core_ireset,
+				cp2	     => core_cp2,
+				adr        => core_adr,
+				dbus_in    => core_dbusout,
+				iore       => core_iore,
+				iowe       => core_iowe,
+				-- External connection
+				input => UpDownClockCount,
+				output => pwm(i)
+			);
+	end generate;
 
--- PWM blocks
-PwmGen_Inst:for i in pwm'range generate
-	PwmGen_Inst:component PwmGen 
-		generic map (
-			ControlRegAddress => conv_std_logic_vector(x"5001"+i, 16)
-		)
-		port map(
-			-- AVR Control
-			ireset     => core_ireset,
-			cp2	     => core_cp2,
-			adr        => core_ramadr,
-			dbus_in    => core_dbusout,
-			iore       => core_ramre,
-			iowe       => core_ramwe,
-			-- External connection
-			count => UpDownClockCount,
-			pwm => pwm(i)
-		);
-end generate;
-
+	--Connect PWM to port E & F
+	porte <= pwm(7 downto 0);
+	portf <= pwm(15 downto 8);
 
 
 --	QuadCounter_Inst:component QuadCounter

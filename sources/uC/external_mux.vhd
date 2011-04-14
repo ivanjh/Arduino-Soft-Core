@@ -19,9 +19,7 @@ entity external_mux is port(
 		                    io_port_en_bus : in  ext_mux_en_type;
                             irqack         : in  std_logic;
                             irqackad       : in  std_logic_vector(4 downto 0);		  
-		                    ind_irq_ack    : out std_logic_vector(22 downto 0)		  
-								   io_port_mm_bus : ext_mux_din_type;
-									io_port_mm_en_bus: ext_mux_en_type
+		                    ind_irq_ack    : out std_logic_vector(22 downto 0)
 		                    );
 end external_mux;
 
@@ -31,7 +29,7 @@ architecture RTL of external_mux is
 
 
 --Put all mux signals in a single set of structures
-signal mux_inputs : array_std_logic_vector_7_0(0 to (io_port_bus'length+1+io_port_mm_bus'length)-1);
+signal mux_inputs : array_std_logic_vector_7_0(0 to (io_port_bus'length+1)-1);
 signal mux_en_inputs : std_logic_vector(0 to (mux_inputs'length)-1);
 
 signal mux_chain : array_std_logic_vector_7_0(0 to mux_inputs'length);
@@ -57,10 +55,10 @@ mux_inputs(io_port_bus'right+1) <= ram_data_out;
 mux_en_inputs(io_port_bus'right+1) <= ramre;
 
 --Map memory mapped
-map_io_port_mm_bus:for i in 0 to io_port_bus'right generate
-	mux_inputs(io_port_mm_bus'right+2+i) <= io_port_mm_bus(i);
-	mux_en_inputs(io_port_mm_bus'right+2+i) <= io_port_mm_en_bus(i);
-end generate;
+--map_io_port_mm_bus:for i in 0 to io_port_bus'right generate
+--	mux_inputs(io_port_mm_bus'right+2+i) <= io_port_mm_bus(i);
+--	mux_en_inputs(io_port_mm_bus'right+2+i) <= io_port_mm_en_bus(i);
+--end generate;
 
 
 --First link in chain

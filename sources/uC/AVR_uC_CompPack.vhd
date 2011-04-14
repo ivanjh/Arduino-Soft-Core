@@ -11,54 +11,6 @@ use WORK.AVRuCPackage.all;
 
 package AVR_uC_CompPack is
 
-component QuadCounter is
-	generic ( 
-		COUNTER_BIT_WIDTH : integer := 8;
-		COUNTER_INVALID_BIT_WIDTH : integer := 8
-		);
-	port (
-		ireset : in std_logic; 
-		clk : in std_logic; 
-		A, B : in std_logic; 
-		counter : out std_logic_vector(COUNTER_BIT_WIDTH-1 downto 0);
-		counterInvalid : out std_logic_vector(COUNTER_INVALID_BIT_WIDTH-1 downto 0)
-	);
-end component;
-
-component PwmGen is
-	generic(ControlRegAddress : std_logic_vector(15 downto 0)); 
-    Port ( 
-	 	                -- AVR Control
-                    ireset     : in  std_logic;
-                    cp2	       : in  std_logic;
-                    adr        : in  std_logic_vector(15 downto 0);
-                    dbus_in    : in  std_logic_vector(7 downto 0);
-
-                    iore       : in  std_logic;
-                    iowe       : in  std_logic;
-
-                    -- External connection
-						  count : in  std_logic_vector;
-           pwm : out  STD_LOGIC);
-end component;
-
-
-component UpDownCount is
-	generic(ControlRegAddress : std_logic_vector(15 downto 0)); 
-    Port ( 
-	 	                -- AVR Control
-                    ireset     : in  std_logic;
-                    cp2	       : in  std_logic;
-                    adr        : in  std_logic_vector(15 downto 0);
-                    dbus_in    : in  std_logic_vector(7 downto 0);
-
-                    iore       : in  std_logic;
-                    iowe       : in  std_logic;
-
-                    -- External connection
-           count : out  std_logic_vector
-           );
-end component;
 
 
 component pport is generic(PPortNum : natural); 

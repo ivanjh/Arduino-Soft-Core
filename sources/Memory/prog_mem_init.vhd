@@ -5,7 +5,7 @@
 --
 -- Command: data2mem -bd main.mem -bm "d:\Projects\Arduino-Soft-Core\scripts\XilinxISE\Papilio_AVR8_bd.bmm" -o h main.vhd
 --
--- Created on Wednesday April 13, 2011 - 07:10:17 pm, from:
+-- Created on Thursday April 14, 2011 - 07:22:49 pm, from:
 --
 --     Map file     - d:\Projects\Arduino-Soft-Core\scripts\XilinxISE\Papilio_AVR8_bd.bmm
 --     Data file(s) - main.mem
@@ -21,8 +21,8 @@ package main_pkg_avrmap_rom_code is
 
 -- BRAM 0 in address space [0x00000000:0x000007FF], bit lane [15:0]
 -- INST PM_Inst/RAM_Word0 LOC = RAMB16_X0Y2;
-	constant PM_Inst_RAM_Word0_INIT_00  : bit_vector(0 to 255) := x"BB8858802F89BB9BE0911FFF92101101938011009210BB87BB8AEF8FBA18BA1B";
-	constant PM_Inst_RAM_Word0_INIT_01  : bit_vector(0 to 255) := x"000000000000000000000000000000000000000000000000CFF85F9F10009390";
+	constant PM_Inst_RAM_Word0_INIT_00  : bit_vector(0 to 255) := x"E2E22F89BB8858802F89BB9BE0911121938011209210BB87BB8AEF8FBA18BA1B";
+	constant PM_Inst_RAM_Word0_INIT_01  : bit_vector(0 to 255) := x"00000000000000000000CFEF5F9FF7C107F234E2E1215E8C963283818210E1F1";
 	constant PM_Inst_RAM_Word0_INIT_02  : bit_vector(0 to 255) := x"0000000000000000000000000000000000000000000000000000000000000000";
 	constant PM_Inst_RAM_Word0_INIT_03  : bit_vector(0 to 255) := x"0000000000000000000000000000000000000000000000000000000000000000";
 	constant PM_Inst_RAM_Word0_INIT_04  : bit_vector(0 to 255) := x"0000000000000000000000000000000000000000000000000000000000000000";

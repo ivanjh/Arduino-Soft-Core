@@ -116,8 +116,8 @@ BEGIN
 
       -- insert stimulus here 
 		nrst <= '1';
-		portb <= "11111111";
-		portd <= "10101010";
+--		portb <= "11111111";
+--		portd <= "10101010";
 --		wait for clk_period*10;
 --		nrst <= '0';
 --		wait for clk_period*10;	
