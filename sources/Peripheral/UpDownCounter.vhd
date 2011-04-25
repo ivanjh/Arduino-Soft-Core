@@ -68,7 +68,7 @@ begin
 
 	LoadFromDbus:process(cp2,ireset)
 	variable
-		newVal : std_logic_vector(count'range);
+		newVal:std_logic_vector(count'range);
 	begin
 		if (ireset='0') then -- Reset
 			maxValue <= (others=>'0');

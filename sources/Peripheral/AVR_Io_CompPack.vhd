@@ -9,23 +9,10 @@ use WORK.AVRuCPackage.all;
 
 package AVR_Io_CompPack is
 
-	component QuadCounter is
-		generic ( 
-			COUNTER_BIT_WIDTH : integer := 8;
-			COUNTER_INVALID_BIT_WIDTH : integer := 8
-			);
-		port (
-			ireset : in std_logic; 
-			clk : in std_logic; 
-			A, B : in std_logic; 
-			counter : out std_logic_vector(COUNTER_BIT_WIDTH-1 downto 0);
-			counterInvalid : out std_logic_vector(COUNTER_INVALID_BIT_WIDTH-1 downto 0)
-		);
-	end component;
-
 	component PwmComparator is
 		generic(
-			IoAddress : std_logic_vector(15 downto 0)); 
+			IoAddress : std_logic_vector(15 downto 0)
+		); 
 		port ( 
 			-- IO Bus
 			ireset   : in  std_logic;
@@ -43,7 +30,7 @@ package AVR_Io_CompPack is
 
 	component UpDownCounter is
 		generic(
-			IoAddress : std_logic_vector(15 downto 0)); 
+			IoAddress : std_logic_vector(15 downto 0)
 		); 
 		port ( 
 			-- AVR Control
@@ -55,6 +42,27 @@ package AVR_Io_CompPack is
 			iowe       : in  std_logic;
 			-- Counter Output
 			count : out  std_logic_vector
+		);
+	end component;
+
+	component QuadCounter is
+		generic ( 
+			IoAddress : std_logic_vector(15 downto 0);
+			COUNTER_BIT_WIDTH : integer := 16;
+			COUNTER_INVALID_BIT_WIDTH : integer := 16
+		);
+		port (
+			-- AVR Control
+			ireset     : in  std_logic;
+			cp2        : in  std_logic;
+			adr        : in  std_logic_vector(15 downto 0);
+			iore       : in  std_logic;
+			dbus_out   : out std_logic_vector (7 downto 0);
+			out_en     : out std_logic;
+			iowe       : in  std_logic;
+			dbus_in    : in  std_logic_vector(7 downto 0);
+			-- Counter Input
+			A, B       : in  std_logic
 		);
 	end component;
 

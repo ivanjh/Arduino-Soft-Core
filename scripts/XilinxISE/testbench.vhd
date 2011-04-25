@@ -78,7 +78,9 @@ ARCHITECTURE behavior OF testbench IS
    signal TDO : std_logic;
 
    -- Clock period definitions
-   constant clk_period : time := 1us;
+   --constant clk_period : time := 1us; 
+	constant clk_period : time := 0.03125us; --32mhz
+	constant quad_period : time := clk_period*100;
  
 BEGIN
  
@@ -110,9 +112,9 @@ BEGIN
    stim_proc: process
    begin		
       -- hold reset state for 100ms.
-      wait for 1ms;	
+      wait for 1us;	
 
-      wait for clk_period*10;
+      --wait for clk_period*10;
 
       -- insert stimulus here 
 		nrst <= '1';
@@ -125,5 +127,35 @@ BEGIN
 
       wait;
    end process;
+
+
+
+   stim_proc2: process
+   begin		
+      -- hold reset state for 100ms.
+      wait for 1us;
+
+      wait for clk_period*10;
+
+		loop 
+			-- Up
+			for identifier in 1 to 250/4 loop
+				portf(0)<='1';wait for quad_period;
+				portf(1)<='1';wait for quad_period;
+				portf(0)<='0';wait for quad_period;
+				portf(1)<='0';wait for quad_period;
+			end loop;
+
+			-- Down
+			for identifier in 1 to 250/4 loop
+				portf(1)<='1';wait for quad_period;
+				portf(0)<='1';wait for quad_period;
+				portf(1)<='0';wait for quad_period;
+				portf(0)<='0';wait for quad_period;
+			end loop;
+		end loop;
+
+   end process;
+
 
 END;

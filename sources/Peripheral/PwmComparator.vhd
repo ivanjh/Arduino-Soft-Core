@@ -7,10 +7,6 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_unsigned.all;
 
---use WORK.AVRuCPackage.all;
---use WORK.SynthCtrlPack.all; -- Synthesis control
---use WORK.SynchronizerCompPack.all; -- Component declarations for the synchronizers 
-
 entity PwmComparator is
 	generic(
 		IoAddress : std_logic_vector(15 downto 0)); 
@@ -52,7 +48,7 @@ begin
 		newVal : std_logic_vector(input'range);
 	begin
 		if (ireset='0') then -- Reset
-			SetPoint <= (others=>'0');
+			SetPoint <= (others=>'1');
 			tempValue <= (others=>'0');
 		elsif (cp2='1' and cp2'event) then -- Rising clock
 			if (adr=IoAddress) and iowe='1' then -- Non loading write

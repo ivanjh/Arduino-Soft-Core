@@ -46,10 +46,10 @@ end Papilio_AVR8;
 architecture Struct of Papilio_AVR8 is
 
 -- Use these setting to control which peripherals you want to include with your custom AVR8 implementation.
-constant CImplPORTA			            : boolean := TRUE;
-constant CImplPORTB			            : boolean := TRUE;
-constant CImplPORTC							: boolean := TRUE;
-constant CImplPORTD    			         : boolean := TRUE;
+constant CImplPORTA			            : boolean := FALSE;
+constant CImplPORTB			            : boolean := FALSE;
+constant CImplPORTC							: boolean := FALSE;
+constant CImplPORTD    			         : boolean := FALSE;
 constant CImplPORTE      			      : boolean := FALSE;
 constant CImplPORTF           			: boolean := FALSE;
 constant CImplUART      			      : boolean := TRUE;	--AVR8 UART peripheral
@@ -323,9 +323,9 @@ signal core9_out_en   : std_logic;
 
 -- ###############################################################################################################
 
--- PWM Gen
-signal UpDownClockCount : std_logic_vector(15 downto 0);
-signal pwm : std_logic_vector(15 downto 0);
+	-- PWM Gen
+	signal UpDownClockCount : std_logic_vector(15 downto 0);
+	signal pwm : std_logic_vector(47 downto 0);
 
 begin
 
@@ -374,6 +374,11 @@ io_port_out_en(9) <= core9_out_en;
 --DDRBReg(1)<='0';
 end generate;
 
+Inst_papilio_core_template_Not_Impl:if not CImplpapilio_core_template generate
+	portf <= (others => 'Z');	
+	io_port_out(9) <= (others => '0');
+	io_port_out_en(9) <= '0';
+end generate; 
 
 -- ******************  END User Cores - Instantiate User Cores Here **************************
 
@@ -385,10 +390,6 @@ core_irqlines(13 downto 10) <= ( others => '0');
 core_irqlines(16) <= '0';
 core_irqlines(22 downto 20) <= ( others => '0');
 -- ************************
-
--- Unused out_en
-io_port_out_en(10 to 15) <= (others => '0');
-io_port_out(10 to 15) <= (others => (others => '0'));
 
 AVR_Core_Inst:component AVR_Core port map(
 	--Clock and reset
@@ -480,7 +481,9 @@ end generate;
 end generate;
 
 PORTA_Not_Impl:if not CImplPORTA generate
- porta <= (others => 'Z');	
+	porta <= (others => 'Z');	
+	io_port_out(0) <= (others => '0');
+	io_port_out_en(0) <= '0';
 end generate; 
 
 -- ******************  PORTB **************************		
@@ -514,7 +517,9 @@ end generate;
 end generate;
 
 PORTB_Not_Impl:if not CImplPORTB generate
- portb <= (others => 'Z');	
+	portb <= (others => 'Z');	
+	io_port_out(1) <= (others => '0');
+	io_port_out_en(1) <= '0';
 end generate; 
 	
 -- ************************************************
@@ -550,7 +555,9 @@ end generate;
 end generate;
 
 PORTC_Not_Impl:if not CImplPORTC generate
- portc <= (others => 'Z');	
+	portc <= (others => 'Z');	
+	io_port_out(5) <= (others => '0');
+	io_port_out_en(5) <= '0';
 end generate; 
 
 -- ******************  PORTD **************************		
@@ -584,7 +591,9 @@ end generate;
 end generate;
 
 PORTD_Not_Impl:if not CImplPORTD generate
- portd <= (others => 'Z');	
+	portd <= (others => 'Z');	
+	io_port_out(6) <= (others => '0');
+	io_port_out_en(6) <= '0';
 end generate; 
 	
 -- ************************************************
@@ -620,7 +629,9 @@ end generate;
 end generate;
 
 PORTE_Not_Impl:if not CImplPORTE generate
- porte <= (others => 'Z');	
+	porte <= (others => 'Z');	
+	io_port_out(7) <= (others => '0');
+	io_port_out_en(7) <= '0';
 end generate; 
 
 -- ******************  PORTF **************************		
@@ -654,7 +665,9 @@ end generate;
 end generate;
 
 PORTF_Not_Impl:if not CImplPORTF generate
- portf <= (others => 'Z');	
+	portf <= (others => 'Z');	
+	io_port_out(8) <= (others => '0');
+	io_port_out_en(8) <= '0';
 end generate; 
 	
 -- ************************************************
@@ -928,7 +941,7 @@ RAMAdrDcd_Inst:component RAMAdrDcd port map(
 
 	-- PWM compare blocks
 	PwmComparator_Inst:for i in pwm'range generate
-		PwmComparator_Inst:component PwmComparator 
+		PwmComparator_Inst:component PwmComparator
 			generic map(
 				IoAddress => conv_std_logic_vector(16#1102#+i*2, 16)
 			)
@@ -947,27 +960,36 @@ RAMAdrDcd_Inst:component RAMAdrDcd port map(
 	end generate;
 
 	--Connect PWM to port E & F
-	porte <= pwm(7 downto 0);
-	portf <= pwm(15 downto 8);
+	porta <= pwm(7 downto 0);
+	portb <= pwm(15 downto 8);
+	portc <= pwm(23 downto 16);
+	portd <= pwm(31 downto 24);
+	porte <= pwm(39 downto 32);
+--	portf <= pwm(47 downto 40);
 
-
---	QuadCounter_Inst:component QuadCounter
-----		generic map (
-----			ControlRegAddress => conv_std_logic_vector(x"5001"+i, 16)
-----		)
---		port map(
---			-- AVR Control
---			ireset     => core_ireset,
---			clk	     => core_cp2,
---			adr        => core_ramadr,
---			dbus_in    => core_dbusout,
---			iore       => core_ramre,
---			iowe       => core_ramwe,
---			-- External connection
---			count => UpDownClockCount,
---		);
-
-
-
-
+	QuadCounter_Inst:for i in 0 to 3 generate
+		QuadCounter_Inst:component QuadCounter
+			generic map(
+				IoAddress => conv_std_logic_vector(16#1200#+i*2, 16)
+			)
+			port map(
+				-- AVR Control
+				ireset     => core_ireset,
+				cp2	     => core_cp2,
+				adr        => core_adr,
+				dbus_in    => core_dbusout,
+				dbus_out   => io_port_out(10+i),
+				out_en     => io_port_out_en(10+i),
+				iore       => core_iore,
+				iowe       => core_iowe,
+				-- External connection
+				A => portf(i),
+				B => portf(i+1)
+			);
+	end generate;
+	
+	-- Unused out_en
+	io_port_out_en(14 to 15) <= (others => '0');
+	io_port_out(14 to 15) <= (others => (others => '0'));
+	
 end Struct;

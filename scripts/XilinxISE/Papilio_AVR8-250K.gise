@@ -22,11 +22,7 @@
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="Papilio_AVR8-250K.xise"/>
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name=".lso"/>
-    <file xil_pn:fileType="FILE_VHDL" xil_pn:name="DCM32to16.vhd">
-      <branch xil_pn:name="Implementation"/>
-      <branch xil_pn:name="BehavioralSim"/>
-    </file>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_VHDL" xil_pn:name="DCM32to16.vhd"/>
     <file xil_pn:fileType="FILE_UCF" xil_pn:name="DCM32to16_arwz.ucf" xil_pn:origination="imported"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="Papilio_AVR8.bld"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="Papilio_AVR8.cmd_log"/>
@@ -42,11 +38,11 @@
     <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="Papilio_AVR8.ptwx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="Papilio_AVR8.stx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="Papilio_AVR8.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="Papilio_AVR8.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="Papilio_AVR8.twx" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="Papilio_AVR8.unroutes" xil_pn:subbranch="Par"/>
     <file xil_pn:fileType="FILE_XPI" xil_pn:name="Papilio_AVR8.xpi"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="Papilio_AVR8.xst"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Papilio_AVR8_beh.prj"/>
-    <file xil_pn:fileType="FILE_HTML" xil_pn:name="Papilio_AVR8_envsettings.html"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="Papilio_AVR8_guide.ncd" xil_pn:origination="imported"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="Papilio_AVR8_map.map" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="Papilio_AVR8_map.mrp" xil_pn:subbranch="Map"/>
@@ -57,7 +53,6 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="Papilio_AVR8_pad.csv" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="Papilio_AVR8_pad.txt" xil_pn:subbranch="Par"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="Papilio_AVR8_par.xrpt"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Papilio_AVR8_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="Papilio_AVR8_summary.html"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="Papilio_AVR8_summary.xml"/>
     <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="Papilio_AVR8_usage.xml"/>
@@ -67,212 +62,45 @@
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
-    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
-    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
-    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="planAhead_run_1"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="testbench_beh.prj"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="testbench_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="testbench_isim_beh.wdb"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="testbench_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="xaw2vhdl.log"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1302782554" xil_pn:name="TRANEXT_compLibraries_FPGA" xil_pn:prop_ck="6722788503651541368" xil_pn:start_ts="1302782554">
-      <status xil_pn:value="FailedRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1302783326" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1302783326">
+    <transform xil_pn:end_ts="1303725527" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1303725527">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1302783326" xil_pn:in_ck="6967792329265813056" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1302783326">
+    <transform xil_pn:end_ts="1303725527" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="2150646502090520859" xil_pn:start_ts="1303725527">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="../../sources/CommonPacks/AVRuCPackage.vhd"/>
-      <outfile xil_pn:name="../../sources/CommonPacks/SynthCtrlPack.vhd"/>
-      <outfile xil_pn:name="../../sources/Core/AVR_Core_CompPack.vhd"/>
-      <outfile xil_pn:name="../../sources/Core/alu_avr.vhd"/>
-      <outfile xil_pn:name="../../sources/Core/avr_core.vhd"/>
-      <outfile xil_pn:name="../../sources/Core/bit_processor.vhd"/>
-      <outfile xil_pn:name="../../sources/Core/io_adr_dec.vhd"/>
-      <outfile xil_pn:name="../../sources/Core/io_reg_file.vhd"/>
-      <outfile xil_pn:name="../../sources/Core/pm_fetch_dec.vhd"/>
-      <outfile xil_pn:name="../../sources/Core/reg_file.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/JTAGCompPack.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/JTAGDataPack.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/JTAGOCDPrgTop.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/JTAGPack.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/JTAGProgrammerPack.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/JTAGTAPCtrlSMPack.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/OCDProgTCK.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/OCDProgcp2.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/Resync1b_TCK.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/Resync1b_cp2.vhd"/>
-      <outfile xil_pn:name="../../sources/MemArbAndMux/ArbiterAndMux.vhd"/>
-      <outfile xil_pn:name="../../sources/MemArbAndMux/MemAccessCompPack.vhd"/>
-      <outfile xil_pn:name="../../sources/MemArbAndMux/MemAccessCtrlPack.vhd"/>
-      <outfile xil_pn:name="../../sources/MemArbAndMux/MemRdMux.vhd"/>
-      <outfile xil_pn:name="../../sources/MemArbAndMux/RAMAdrDcd.vhd"/>
-      <outfile xil_pn:name="../../sources/Memory/XDM4Kx8.vhd"/>
-      <outfile xil_pn:name="../../sources/Memory/XMemCompPack.vhd"/>
-      <outfile xil_pn:name="../../sources/Memory/XPM8Kx16.vhd"/>
-      <outfile xil_pn:name="../../sources/Memory/prog_mem_init.vhd"/>
-      <outfile xil_pn:name="../../sources/Peripheral/QuadCounter.vhd"/>
-      <outfile xil_pn:name="../../sources/Peripheral/SynchronizerCompPack.vhd"/>
-      <outfile xil_pn:name="../../sources/Peripheral/SynchronizerDFF.vhd"/>
-      <outfile xil_pn:name="../../sources/Peripheral/SynchronizerLatch.vhd"/>
-      <outfile xil_pn:name="../../sources/Peripheral/Timer_Counter.vhd"/>
-      <outfile xil_pn:name="../../sources/Peripheral/portx.vhd"/>
-      <outfile xil_pn:name="../../sources/Peripheral/uart.vhd"/>
-      <outfile xil_pn:name="../../sources/uC/AVR_uC_CompPack.vhd"/>
-      <outfile xil_pn:name="../../sources/uC/BusMastCompPack.vhd"/>
-      <outfile xil_pn:name="../../sources/uC/Papilio_AVR8.vhd"/>
-      <outfile xil_pn:name="../../sources/uC/RAMDataReg.vhd"/>
-      <outfile xil_pn:name="../../sources/uC/ResetGenerator.vhd"/>
-      <outfile xil_pn:name="../../sources/uC/external_mux.vhd"/>
-      <outfile xil_pn:name="../../submodules/papilio_core_template/sources/papilio_core_template.vhd"/>
-      <outfile xil_pn:name="AVR_Io_CompPack.vhd"/>
-      <outfile xil_pn:name="PwmComparator.vhd"/>
-      <outfile xil_pn:name="UpDownCounter.vhd"/>
-      <outfile xil_pn:name="testbench.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1302783331" xil_pn:in_ck="3597099248867875760" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="4434870115928851094" xil_pn:start_ts="1302783331">
+    <transform xil_pn:end_ts="1303725527" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-1030542762929199047" xil_pn:start_ts="1303725527">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1303725527" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1303725527">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1303725908" xil_pn:in_ck="3597099248867875760" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-4951759905664313767" xil_pn:start_ts="1303725907">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="DCM32to16.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1302779037" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-3122580995542427112" xil_pn:start_ts="1302779037">
+    <transform xil_pn:end_ts="1303725529" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="5199527252420087910" xil_pn:start_ts="1303725529">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1302779037" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-1030542762929199047" xil_pn:start_ts="1302779037">
+    <transform xil_pn:end_ts="1303725529" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="7466090522587467459" xil_pn:start_ts="1303725529">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1302783331" xil_pn:in_ck="-4165676711319578349" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1302783331">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="../../sources/CommonPacks/AVRuCPackage.vhd"/>
-      <outfile xil_pn:name="../../sources/CommonPacks/SynthCtrlPack.vhd"/>
-      <outfile xil_pn:name="../../sources/Core/AVR_Core_CompPack.vhd"/>
-      <outfile xil_pn:name="../../sources/Core/alu_avr.vhd"/>
-      <outfile xil_pn:name="../../sources/Core/avr_core.vhd"/>
-      <outfile xil_pn:name="../../sources/Core/bit_processor.vhd"/>
-      <outfile xil_pn:name="../../sources/Core/io_adr_dec.vhd"/>
-      <outfile xil_pn:name="../../sources/Core/io_reg_file.vhd"/>
-      <outfile xil_pn:name="../../sources/Core/pm_fetch_dec.vhd"/>
-      <outfile xil_pn:name="../../sources/Core/reg_file.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/JTAGCompPack.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/JTAGDataPack.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/JTAGOCDPrgTop.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/JTAGPack.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/JTAGProgrammerPack.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/JTAGTAPCtrlSMPack.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/OCDProgTCK.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/OCDProgcp2.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/Resync1b_TCK.vhd"/>
-      <outfile xil_pn:name="../../sources/JTAG_OCD_Prg/Resync1b_cp2.vhd"/>
-      <outfile xil_pn:name="../../sources/MemArbAndMux/ArbiterAndMux.vhd"/>
-      <outfile xil_pn:name="../../sources/MemArbAndMux/MemAccessCompPack.vhd"/>
-      <outfile xil_pn:name="../../sources/MemArbAndMux/MemAccessCtrlPack.vhd"/>
-      <outfile xil_pn:name="../../sources/MemArbAndMux/MemRdMux.vhd"/>
-      <outfile xil_pn:name="../../sources/MemArbAndMux/RAMAdrDcd.vhd"/>
-      <outfile xil_pn:name="../../sources/Memory/XDM4Kx8.vhd"/>
-      <outfile xil_pn:name="../../sources/Memory/XMemCompPack.vhd"/>
-      <outfile xil_pn:name="../../sources/Memory/XPM8Kx16.vhd"/>
-      <outfile xil_pn:name="../../sources/Memory/prog_mem_init.vhd"/>
-      <outfile xil_pn:name="../../sources/Peripheral/QuadCounter.vhd"/>
-      <outfile xil_pn:name="../../sources/Peripheral/SynchronizerCompPack.vhd"/>
-      <outfile xil_pn:name="../../sources/Peripheral/SynchronizerDFF.vhd"/>
-      <outfile xil_pn:name="../../sources/Peripheral/SynchronizerLatch.vhd"/>
-      <outfile xil_pn:name="../../sources/Peripheral/Timer_Counter.vhd"/>
-      <outfile xil_pn:name="../../sources/Peripheral/portx.vhd"/>
-      <outfile xil_pn:name="../../sources/Peripheral/uart.vhd"/>
-      <outfile xil_pn:name="../../sources/uC/AVR_uC_CompPack.vhd"/>
-      <outfile xil_pn:name="../../sources/uC/BusMastCompPack.vhd"/>
-      <outfile xil_pn:name="../../sources/uC/Papilio_AVR8.vhd"/>
-      <outfile xil_pn:name="../../sources/uC/RAMDataReg.vhd"/>
-      <outfile xil_pn:name="../../sources/uC/ResetGenerator.vhd"/>
-      <outfile xil_pn:name="../../sources/uC/external_mux.vhd"/>
-      <outfile xil_pn:name="../../submodules/papilio_core_template/sources/papilio_core_template.vhd"/>
-      <outfile xil_pn:name="AVR_Io_CompPack.vhd"/>
-      <outfile xil_pn:name="DCM32to16.vhd"/>
-      <outfile xil_pn:name="PwmComparator.vhd"/>
-      <outfile xil_pn:name="UpDownCounter.vhd"/>
-      <outfile xil_pn:name="testbench.vhd"/>
-    </transform>
-    <transform xil_pn:end_ts="1302783343" xil_pn:in_ck="-4165676711319578349" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-1604413538578049394" xil_pn:start_ts="1302783331">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="fuse.log"/>
-      <outfile xil_pn:name="isim"/>
-      <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="testbench_beh.prj"/>
-      <outfile xil_pn:name="testbench_isim_beh.exe"/>
-      <outfile xil_pn:name="xilinxsim.ini"/>
-    </transform>
-    <transform xil_pn:end_ts="1302783344" xil_pn:in_ck="7130759491340027311" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="8916427109707753147" xil_pn:start_ts="1302783343">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="isim.cmd"/>
-      <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="testbench_isim_beh.wdb"/>
-    </transform>
-    <transform xil_pn:end_ts="1302778304" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1302778304">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1302778304" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="2150646502090520859" xil_pn:start_ts="1302778304">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1302778304" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-1030542762929199047" xil_pn:start_ts="1302778304">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1302778304" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1302778304">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1302783468" xil_pn:in_ck="3597099248867875760" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-4951759905664313767" xil_pn:start_ts="1302783468">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="DCM32to16.vhd"/>
-    </transform>
-    <transform xil_pn:end_ts="1302778548" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="5199527252420087910" xil_pn:start_ts="1302778548">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1302778548" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="7466090522587467459" xil_pn:start_ts="1302778548">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1302783535" xil_pn:in_ck="-3467396439927858845" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-3778162749732305878" xil_pn:start_ts="1302783468">
+    <transform xil_pn:end_ts="1303725976" xil_pn:in_ck="3244259571506477359" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-3778162749732305878" xil_pn:start_ts="1303725908">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -280,7 +108,6 @@
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name=".lso"/>
       <outfile xil_pn:name="Papilio_AVR8.lso"/>
       <outfile xil_pn:name="Papilio_AVR8.ngc"/>
       <outfile xil_pn:name="Papilio_AVR8.ngr"/>
@@ -288,20 +115,19 @@
       <outfile xil_pn:name="Papilio_AVR8.stx"/>
       <outfile xil_pn:name="Papilio_AVR8.syr"/>
       <outfile xil_pn:name="Papilio_AVR8.xst"/>
-      <outfile xil_pn:name="Papilio_AVR8_beh.prj"/>
-      <outfile xil_pn:name="Papilio_AVR8_stx_beh.prj"/>
       <outfile xil_pn:name="Papilio_AVR8_vhdl.prj"/>
       <outfile xil_pn:name="Papilio_AVR8_xst.xrpt"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1302783535" xil_pn:in_ck="6829888017548730596" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-4536615338085964690" xil_pn:start_ts="1302783535">
+    <transform xil_pn:end_ts="1303725591" xil_pn:in_ck="6829888017548730596" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-4536615338085964690" xil_pn:start_ts="1303725591">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1302783542" xil_pn:in_ck="-4617882442829589424" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="4156033175662049862" xil_pn:start_ts="1302783535">
+    <transform xil_pn:end_ts="1303725983" xil_pn:in_ck="-4617882442829589424" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="4156033175662049862" xil_pn:start_ts="1303725976">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="Papilio_AVR8.bld"/>
@@ -310,7 +136,7 @@
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1302783551" xil_pn:in_ck="885414814578490297" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-8535960543883491901" xil_pn:start_ts="1302783542">
+    <transform xil_pn:end_ts="1303725995" xil_pn:in_ck="885414814578490297" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-8535960543883491901" xil_pn:start_ts="1303725983">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -325,8 +151,9 @@
       <outfile xil_pn:name="Papilio_AVR8_usage.xml"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1302783602" xil_pn:in_ck="6456158129487855442" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="3129755442398015208" xil_pn:start_ts="1302783551">
+    <transform xil_pn:end_ts="1303726064" xil_pn:in_ck="6456158129487855442" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="3129755442398015208" xil_pn:start_ts="1303725995">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="Papilio_AVR8.ncd"/>
@@ -340,13 +167,13 @@
       <outfile xil_pn:name="Papilio_AVR8_par.xrpt"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
     </transform>
-    <transform xil_pn:name="TRAN_postRouteTrce">
-      <status xil_pn:value="AbortedRun"/>
+    <transform xil_pn:end_ts="1303726064" xil_pn:in_ck="885414814578490165" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416186" xil_pn:start_ts="1303726049">
+      <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputChanged"/>
+      <outfile xil_pn:name="Papilio_AVR8.twr"/>
+      <outfile xil_pn:name="Papilio_AVR8.twx"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
     </transform>
   </transforms>
 
