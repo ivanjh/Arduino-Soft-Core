@@ -89,33 +89,6 @@ PORT(
 	);
 END COMPONENT;
 
--- ############################## Define Components for User Cores ##################################################
-
--- Example Core - core9 
-COMPONENT papilio_core_template
-PORT(
-			-- begin Signals required by AVR8 for this core, do not modify.
-			nReset 		: in  STD_LOGIC;
-			clk 			: in  STD_LOGIC;
-			adr 			: in  STD_LOGIC_VECTOR (15 downto 0);
-			dbus_in 		: in  STD_LOGIC_VECTOR (7 downto 0);
-			dbus_out 	: out  STD_LOGIC_VECTOR (7 downto 0);
-			iore 			: in  STD_LOGIC;
-			iowe 			: in  STD_LOGIC;
-			out_en		: out STD_LOGIC;
-			-- end Signals required by AVR8 for this core, do not modify.
-
-			--Define signals that you want to go in or out of the peripheral. These are usually going to be connected to extenal pins of the Papilio board.
-			--Two Output Signals
-			output_sig	: out std_logic_vector (1 downto 0);
-			
-			--Two Input Signals
-			input_sig		: in std_logic_vector (1 downto 0)
-	);
-END COMPONENT;
-
--- ###############################################################################################################
-
 -- ############################## Signals connected directly to the core ##########################################
 
 signal core_cpuwait  : std_logic;                    
@@ -959,13 +932,14 @@ RAMAdrDcd_Inst:component RAMAdrDcd port map(
 			);
 	end generate;
 
-	--Connect PWM to port E & F
+	--Connect PWM to port A thru F
 	porta <= pwm(7 downto 0);
 	portb <= pwm(15 downto 8);
 	portc <= pwm(23 downto 16);
 	portd <= pwm(31 downto 24);
 	porte <= pwm(39 downto 32);
 --	portf <= pwm(47 downto 40);
+
 
 	QuadCounter_Inst:for i in 0 to 3 generate
 		QuadCounter_Inst:component QuadCounter

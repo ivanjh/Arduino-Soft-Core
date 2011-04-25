@@ -1,6 +1,5 @@
 --************************************************************************************************
 -- Component declarations for AVR IO cores
--- Designed by Ivan Hamilton
 --************************************************************************************************
 
 library IEEE;
@@ -65,5 +64,28 @@ package AVR_Io_CompPack is
 			A, B       : in  std_logic
 		);
 	end component;
+
+	-- Example Core - core9 
+	COMPONENT papilio_core_template
+		PORT(
+			-- begin Signals required by AVR8 for this core, do not modify.
+			nReset 		: in  STD_LOGIC;
+			clk 			: in  STD_LOGIC;
+			adr 			: in  STD_LOGIC_VECTOR (15 downto 0);
+			dbus_in 		: in  STD_LOGIC_VECTOR (7 downto 0);
+			dbus_out 	: out  STD_LOGIC_VECTOR (7 downto 0);
+			iore 			: in  STD_LOGIC;
+			iowe 			: in  STD_LOGIC;
+			out_en		: out STD_LOGIC;
+			-- end Signals required by AVR8 for this core, do not modify.
+
+			--Define signals that you want to go in or out of the peripheral. These are usually going to be connected to extenal pins of the Papilio board.
+			--Two Output Signals
+			output_sig	: out std_logic_vector (1 downto 0);
+
+			--Two Input Signals
+			input_sig		: in std_logic_vector (1 downto 0)
+		);
+	END COMPONENT;
 
 end AVR_Io_CompPack;
